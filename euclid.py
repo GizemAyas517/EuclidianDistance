@@ -1,14 +1,20 @@
 import math
 
+from ptyprocess.ptyprocess import FileNotFoundError
+
 
 class Point:
+    """
+
+    """
     def __init__(self, points, line):
         self.points = points
         self.line = line
 
 
-"insert file name here"
+"insert input file name here"
 file_name = "sample_input_100_100.tsv"
+
 
 f = open(file_name, "r")
 
@@ -20,7 +26,6 @@ dimension = words.__len__()
 f.close()
 
 f = open(file_name, "r")
-
 
 
 points = list()
@@ -48,6 +53,10 @@ def distance_between(point_one, point_two):
 
 
 def find_closest_points():
+    """
+
+    :return:
+    """
     closest_dist = float("inf")
     closest_points = None, None
     for y, point_one in enumerate(points):
@@ -60,4 +69,12 @@ def find_closest_points():
 
     return closest_points, point_one.points, point_two.points
 
-print find_closest_points()[0]
+
+str1=' '.join(str(e) for e in find_closest_points()[1])
+str2=' '.join(str(e) for e in find_closest_points()[2])
+
+f.close()
+out = open("output_sample.txt","w")
+out.write("%s:%s\n" % (str(find_closest_points()[0][0]), str1))
+out.write("%s:%s" % (str(find_closest_points()[0][1]), str2))
+out.close()
