@@ -1,6 +1,4 @@
 import math
-from operator import itemgetter
-
 
 
 class Point:
@@ -13,28 +11,23 @@ class Point:
         self.line = line
 
 
-"insert input file name here"
-file_name = "sample_input_100_100.tsv"
 
 
-f = open(file_name, "r")
 
-line = f.readline()
-words = line.split()
-dimension = words.__len__()
+def fill_points_list(filename):
+    f = open(filename, "r")
 
+    points = list()
+    line_count = 1
+    for line in f:
+        current_point = line.split()
+        points.append(Point(points=current_point, line=line_count))
+        line_count += 1
 
-f.close()
+    f.close()
 
-f = open(file_name, "r")
+    return points
 
-
-points = list()
-line_count = 1
-for line in f:
-    current_point = line.split()
-    points.append(Point(points=current_point, line=line_count))
-    line_count += 1
 
 
 
@@ -53,7 +46,7 @@ def distance_between(point_one, point_two):
     return math.sqrt(sum)
 
 
-def find_closest_points():
+def find_closest_points(points):
     """
     Finds the closest points in a given list of Point objects.
     There are two for loops because I imagined the Point list this way.
@@ -86,16 +79,33 @@ def find_closest_points():
                 dist= distance_between(point_one.points,point_two.points)
                 if dist < closest_dist:
                     closest_dist = dist
-                    closest_points= point_one.line, point_two.line
+                    closest_points= point_one, point_two
 
-    return closest_points, point_one.points, point_two.points
+    return closest_points
 
 
-str1=' '.join(str(e) for e in find_closest_points()[1])
-str2=' '.join(str(e) for e in find_closest_points()[2])
+def file_write(file,point):
 
-f.close()
-out = open("output_sample.txt","w")
-out.write("%s:%s\n" % (str(find_closest_points()[0][0]), str1))
-out.write("%s:%s" % (str(find_closest_points()[0][1]), str2))
-out.close()
+    str1=' '.join(str(e) for e in point.points)
+    file.write("%s:%s\n" % (str(point.line), str1))
+
+
+def main():
+
+    "insert input file name here"
+    file_name = "sample_input_100_100.tsv"
+    points = fill_points_list(file_name)
+    point_one, point_two = find_closest_points(points)
+    out = open("output_sample.txt","w")
+
+
+
+    file_write(out, point_one)
+    file_write(out, point_two)
+
+
+    out.close()
+
+
+if __name__ == "__main__":
+    main()
