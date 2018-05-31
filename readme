@@ -11,4 +11,4 @@ Instructions:
     4) The output file is created with the name "output_sample.txt"
 
 Some notes on the task:
-    O(n^2) is not the optimal runtime for this task, it can be reduced to O(nlogn) using divide-and-conquer and merge sort.
+    O(n^2) is not the optimal runtime for this task, it can be reduced to O(nlogn) using divide-and-conquer.
