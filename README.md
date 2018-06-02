@@ -32,16 +32,18 @@ python euclid.py -f filename
 ```
 The output file is creatde by the program with the name _output_sample.txt_ under the project directory.
 
+
+### Running with given or custom input files
+
+
+
+
 ### Running the test.py file
 
 Test.py runs tests for distance_between() and find_closest_points() functions in euclid.py
 To run the tests in test.py, run the following command:
 
 ```
-python -m unittest test
+pytest test.py
 ```
 
-
-Acknowledgements
-------
-- Inspiration for the readme file from [template].(https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
