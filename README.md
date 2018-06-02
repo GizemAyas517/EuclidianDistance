@@ -44,4 +44,4 @@ python -m unittest test
 
 Acknowledgements
 ------
-[Markdown file template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+- Inspiration for the readme file from [template].(https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
