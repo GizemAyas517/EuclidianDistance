@@ -1,7 +1,7 @@
 Closest Points Finder
 ======
 
-Given a txt or a tsv file of points, Closest pair of points finder finds the closest points using euclidian distance.
+Given a txt or a tsv file of points, Closest Points Finder finds the closest points using euclidian distance.
 
 Getting Started
 ------
@@ -12,7 +12,6 @@ Download the project or clone with:
 
 ```
 git clone https://github.com/GizemAyas517/EuclidianDistance.git
-
 ```
 
 Usage
@@ -26,8 +25,23 @@ python euclid.py --filename filename
 
  #or
 
- python euclid.py -f filename
+python euclid.py -f filename
 
  # use the flag -h or --help to learn more about the flags.
 
 ```
+The output file is creatde by the program with the name _output_sample.txt_ under the project directory.
+
+### Running the test.py file
+
+Test.py runs tests for distance_between() and find_closest_points() functions in euclid.py
+To run the tests in test.py, run the following command:
+
+```
+python -m unittest test
+```
+
+
+Acknowledgements
+------
+[Markdown file template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
