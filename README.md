@@ -8,12 +8,12 @@ Getting Started
 
 ### Installing
 
-Download the project from https://github.com/GizemAyas517/EuclidianDistance or clone it by:
+Download the project or clone with:
 
-'''
+```
 git clone https://github.com/GizemAyas517/EuclidianDistance.git
 
-'''
+```
 
 Usage
 ------
@@ -21,7 +21,7 @@ Usage
 Closest points finder is used with an existing file of points. Open the project in an IDE and
 type the following to the terminal:
 
-'''
+```
 python euclid.py --filename filename
 
  #or
@@ -30,4 +30,4 @@ python euclid.py --filename filename
 
  # use the flag -h or --help to learn more about the flags.
 
-'''
+```
