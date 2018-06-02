@@ -1,4 +1,8 @@
 from unittest import TestCase
+import sys
+import subprocess
+
+
 
 from euclid import distance_between, Point, find_closest_points
 
@@ -42,7 +46,22 @@ class ClosestDistanceTests(TestCase):
     def setUp(self):
         pass
 
-    def test_distance_1dim(self):
+
+    def test_distance_2dim(self):
+
+        p1 = Point(line=0,points=[1, 1])
+        p2 = Point(line=98,points=[2, 2])
+        p3 = Point(line=7,points=[5,5])
+        points = list()
+        points.append(p1)
+        points.append(p2)
+        points.append(p3)
+
+
+        self.assertEquals((p1,p2), find_closest_points(points))
+
+
+    def test_distance_3dim(self):
 
         p1 = Point(line=0,points=[0, 0, 0])
         p2 = Point(line=98,points=[0, 1, 0])
@@ -56,5 +75,8 @@ class ClosestDistanceTests(TestCase):
         self.assertEquals((p1,p2), find_closest_points(points))
 
 
+
     def tearDown(self):
         pass
+
+
