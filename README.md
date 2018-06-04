@@ -32,7 +32,7 @@ There's _no_ need to write the file names in quotes.
 
  # Example
 
- python euclid.py --closest sample_input_files/sample_input_4_4.tsv sample_output_files/sample_output_2_8.txt
+ python euclid.py --closest sample_input_files/sample_input_4_4.tsv sample_output_files/sample_output_4_4.txt
 
  python euclid.py --closest sample_input_files/five_dimension_input sample_output_files/five_dimension_output
 
