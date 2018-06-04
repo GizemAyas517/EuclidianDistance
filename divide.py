@@ -1,7 +1,8 @@
 import argparse
 import sys
 
-from euclid import PointError, file_write, find_dimesion, distance_between, find_closest_points
+from euclid import PointError, find_dimesion, distance_between, check_if_number, \
+    NotEnoughPointError, input_file_test
 
 
 def fill_just_points(filename):
@@ -10,7 +11,7 @@ def fill_just_points(filename):
     :param filename:
     :return:
     """
-    file = open(filename, "r")
+    file = open(input_file_test(filename), "r")
     points = list()
     dimension = find_dimesion(filename)
     flag = False
@@ -19,6 +20,7 @@ def fill_just_points(filename):
         point = line.split()
         if dimension == len(point):
             new_points=list()
+            check_if_number(point)
             for el in point:
                 new_points.append(float(el))
             points.append(new_points)
@@ -28,6 +30,10 @@ def fill_just_points(filename):
 
     if flag:
         print PointError()
+        sys.exit()
+
+    if len(points) ==1:
+        print NotEnoughPointError()
         sys.exit()
 
     return points
@@ -59,7 +65,6 @@ def find_line_numbers(pointone, pointtwo, filename):
     for index,line in enumerate(file):
         points = line.split()
         compare = change_str_to_float(points)
-        print points
         if compare == pointone:
             line1 = index+1
         elif compare == pointtwo:
@@ -67,8 +72,6 @@ def find_line_numbers(pointone, pointtwo, filename):
 
 
     return line1,line2
-
-
 
 
 

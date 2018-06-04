@@ -91,7 +91,7 @@ space complexity is O(1).
 
 Details of how the code works are inside the descriptions of functions in euclid.py.
 
-There's another solution in file divide.py with a more optimized approach. The algorithm used in divide.py is as follows:
+There's another solution in file divide.py with a more optimized approach. The function is called "solution" in divide.py. The algorithm used in divide.py is as follows:
 
 1. Transfer the points in the file to a points array.
 2. Sort the points array according to each dimension in individual arrays, keep them in a list. (lets call this list _sortedlist_)
