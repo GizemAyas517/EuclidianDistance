@@ -185,14 +185,16 @@ def input_file_test(input):
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', "--filename", help='Input file name to use', required=True)
+    parser.add_argument("input", type=str, help="input file name")
+    parser.add_argument("output", type=str, help="output file name")
+    parser.add_argument('-c', "--closest", action="count",help='Find closest points in input file and write to output file.', required=True)
 
-    file_name = parser.parse_args().filename
-
+    file_name = parser.parse_args().input
+    output_filename= parser.parse_args().output
     points = fill_points_list(file_name)
     point_one, point_two = find_closest_points(points)
     output_counter=1
-    out = open("output_sample.txt","w")
+    out = open(output_filename,"w")
     output_counter+=1
     file_write(out, point_one)
     file_write(out, point_two)
