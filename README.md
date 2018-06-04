@@ -30,8 +30,7 @@ python euclid.py -f filename
  # use the flag -h or --help to learn more about the flags.
 
 ```
-The output file is creatde by the program with the name _output_sample.txt_ under the project directory.
-
+The output file is created by the program with the name _output_sample.txt_ under the project directory.
 
 ### Running with given or custom input files
 
@@ -72,4 +71,10 @@ Run the following command:
 ```
 pytest test.py
 ```
+
+Implementation
+------
+
+Euclid.py has a brute force solution approach for finding the closest points problem. The time complexity of the algorithm is O(n^2) and the
+space complexity is O(1).
 
