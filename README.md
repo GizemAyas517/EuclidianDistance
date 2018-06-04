@@ -17,8 +17,9 @@ git clone https://github.com/GizemAyas517/EuclidianDistance.git
 Usage
 ------
 
-Closest points finder is used with an existing file of points. Open the project in an IDE and
-type the following to the terminal:
+Open the project in an IDE and type the following to the terminal. For input_file_name, give the input file you want to use to the system.
+For output_file_name, give the name of the output file you want the system to create or give an existing designated output file you want.
+There's _no_ need to write the file names in quotes.
 
 ```
  python euclid.py --closest input_file_name output_file_name
