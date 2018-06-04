@@ -1,8 +1,8 @@
 import math
 import argparse
 import os
-
 import sys
+
 
 
 class Point:
@@ -15,13 +15,32 @@ class Point:
         self.line = line
 
 class PointError(Exception):
+
     def __init__(self):
         self.message = "Point dimensions are not matching, exiting."
     def __str__(self):
         return self.message
 
-def find_dimesion(filename):
+class NotEnoughPointError():
+    def __init__(self):
+        self.message = "Not enough points in file, exiting."
+    def __str__(self):
+        return self.message
 
+class WrongTypePointError():
+    def __init__(self, coordinate):
+        self.coordinate = coordinate
+        self.message = "Point consists of wrong type of coordinate: %s, exiting." % self.coordinate
+    def __str__(self):
+        return self.message
+
+
+def find_dimesion(filename):
+    """
+    Finds the dimension of the points in the file.
+    :param filename: name of the file to be opened
+    :return: integer
+    """
     file = open(filename,"r")
 
     line = file.readline()
@@ -30,6 +49,11 @@ def find_dimesion(filename):
 
 
 def fill_points_list(filename):
+    """
+    Fills the list of points to be used.
+    :param filename: name of the file to be opened
+    :return: a list of Points which are in the file named filename
+    """
     f = open(input_file_test(filename), "r")
 
     dimension = find_dimesion(filename)
@@ -40,8 +64,10 @@ def fill_points_list(filename):
         current_point = line.split()
 
         if dimension == len(current_point):
-            point=Point(points=current_point, line=line_count)
+            check_if_number(current_point)
+            point = Point(points=current_point, line=line_count)
             points.append(point)
+
             line_count += 1
         else:
             flag=True
@@ -51,18 +77,36 @@ def fill_points_list(filename):
         print PointError()
         sys.exit()
 
-    f.close()
+    if len(points) ==1:
+        print NotEnoughPointError()
+        sys.exit()
 
+    f.close()
 
     return points
 
 
+def check_if_number(list):
+    """
+    Checks whether a given list is in the correct format.
+    :param list: list of int or floats
+    :return: exits from system if given list contains sometype that is not integer or float
+    """
+    for item in list:
+        try:
+           float(item)
+        except ValueError as e:
+            print WrongTypePointError(item)
+            sys.exit()
+
+
+
 def distance_between(point_one, point_two):
     """
-
-    :param point_one:
-    :param point_two:
-    :return:
+    Calculate the distance between two points with same dimensions.
+    :param point_one: integer or float array
+    :param point_two: integer or float array
+    :return: returns the euclidian distance between the two points
     """
     sum = 0
     for d1,d2 in zip(point_one,point_two):
@@ -110,14 +154,23 @@ def find_closest_points(points):
 
 
 def file_write(file,point):
+    """
+
+    :param file:
+    :param point:
+    :return:
+    """
 
     str1=' '.join(str(e) for e in point.points)
     file.write("%s:%s\n" % (str(point.line), str1))
 
 
 def input_file_test(input):
-
-    "Check if file is empty"
+    """
+    Tests whether the input file is empty. If input is not empty, it returns the file; otherwise it exits from the system.
+    :param input: input file to be opened
+    :return: input file.
+    """
     try:
         if os.stat(input).st_size == 0:
             print ("The input file %s is empty, exiting." % input)
@@ -138,8 +191,9 @@ def main():
 
     points = fill_points_list(file_name)
     point_one, point_two = find_closest_points(points)
+    output_counter=1
     out = open("output_sample.txt","w")
-
+    output_counter+=1
     file_write(out, point_one)
     file_write(out, point_two)
 
