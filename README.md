@@ -21,13 +21,20 @@ Closest points finder is used with an existing file of points. Open the project 
 type the following to the terminal:
 
 ```
-python euclid.py --filename filename
+ python euclid.py --filename filename
 
- #or
+ # or
 
-python euclid.py -f filename
+ python euclid.py -f filename
 
- # use the flag -h or --help to learn more about the flags.
+ # use the flag -h or --help to learn more about the flags. Write the file names as they appear on screen.
+
+ # Example
+
+ python euclid.py --filename sample_input_4_4.tsv
+
+ python euclid.py --filename five_dimension_input
+
 
 ```
 The output file is created by the program with the name _output_sample.txt_ under the project directory.
@@ -38,11 +45,11 @@ In addition to the given sample inputs, here are the custom input files and thei
 
 | Given Input file name | Tests edge case? | Output  |
 | -------------          |:-------------:| :-------------:|
-| empty_test_file.txt        | Yes |No. Input file is empty. |
-| unmatch_points_input.txt  | Yes |No. Some points's dimensions doesn't match. |
-| five_dimension_input.txt  | No |five_dimension_output.txt |
-| just_one_point.txt  | Yes | No. There should be more than 1 points in the input. |
-| wrong_type_point.txt  | Yes | No. The points should have only floats and integers as coordinates. |
+| empty_test_file        | Yes |No. Input file is empty. |
+| unmatch_points_input  | Yes |No. Some points's dimensions doesn't match. |
+| five_dimension_input | No |five_dimension_output.txt |
+| just_one_point  | Yes | No. There should be more than 1 points in the input. |
+| wrong_type_point  | Yes | No. The points should have only floats and integers as coordinates. |
 
 
 
@@ -77,4 +84,6 @@ Implementation
 
 Euclid.py has a brute force solution approach for finding the closest points problem. The time complexity of the algorithm is O(n^2) and the
 space complexity is O(1).
+
+Details of how the code works are inside the descriptions of functions in euclid.py.
 
