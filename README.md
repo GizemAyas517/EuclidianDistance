@@ -91,3 +91,25 @@ space complexity is O(1).
 
 Details of how the code works are inside the descriptions of functions in euclid.py.
 
+There's another solution in file divide.py with a more optimized approach. The algorithm used in divide.py is as follows:
+
+... 1. Transfer the points in the file to a points array.
+... 2. Sort the points array according to each dimension in individual arrays, keep them in a list. (lets call this list _sortedlist_)
+... 3. For each sorted array: divide them into two halves recursively and keep dividing until they can be solved with just 2 comparisons. (sub_array length maximum of 3)
+... 4. Compare the minimum value of distance returned by each halve and the corresponding points.
+... 5. Keep all the minimum values in a separate list for each array in _sortedlist_. Let's call this list _minimums_.
+... 6. Return the minimum of the list _minimums_.
+
+Divide.py's approach is similar to a divide and conquer solution. To find the time complexity of this algorithm we need to consider the number of
+sorts and comparisons. The number of comparisons are: O(2*n*m). The number of sorts are: m. Each sort takes O(n*logn) time. So the total time
+the sorting takes is O(n*logn*m).(m is the dimension)
+
+### Usage of Divide.py
+
+It is very similar to euclid.py. Here is an example:
+
+```
+python divide.py --closest sample_input_files/five_dimension_input sample_output_files/five_dimension_output
+```
+
+
