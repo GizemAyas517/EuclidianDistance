@@ -21,25 +21,28 @@ Closest points finder is used with an existing file of points. Open the project 
 type the following to the terminal:
 
 ```
- python euclid.py --filename filename
+ python euclid.py --closest input_file_name output_file_name
 
  # or
 
- python euclid.py -f filename
+ python euclid.py -c input_file_name output_file_name
 
- # use the flag -h or --help to learn more about the flags. Write the file names as they appear on screen.
+ # use the flag -h or --help to learn more about the flags.
 
  # Example
 
- python euclid.py --filename sample_input_4_4.tsv
+ python euclid.py --closest sample_input_files/sample_input_4_4.tsv sample_output_files/sample_output_2_8.txt
 
- python euclid.py --filename five_dimension_input
+ python euclid.py --closest sample_input_files/five_dimension_input sample_output_files/five_dimension_output
 
 
 ```
 The output file is created by the program with the name _output_sample.txt_ under the project directory.
 
 ### Running with given or custom input files
+
+Sample input and output files are in their correspoding directory in the project directory under sample_input_files and
+sample_output_files respectively.
 
 In addition to the given sample inputs, here are the custom input files and their corresponding outputs.
 
